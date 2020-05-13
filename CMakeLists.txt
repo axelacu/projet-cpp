@@ -3,4 +3,4 @@ project(projet_cpp)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(projet_cpp main.cpp SequenceD.cpp SequenceD.h Sequence.cpp Sequence.h)
+add_executable(projet_cpp src/main.cpp src/SequenceD.cpp include/SequenceD.h src/Sequence.cpp include/Sequence.h)
