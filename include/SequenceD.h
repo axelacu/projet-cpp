@@ -2,14 +2,13 @@
 // Created by axel_ on 12/05/2020.
 //
 
-#ifndef PROJET_CPP_SEQUENCED_H
-#define PROJET_CPP_SEQUENCED_H
+#ifndef PROJET_SEQUENCED_H
+#define PROJET_SEQUENCED_H
 
 
 #include "Sequence.h"
 
-template<unsigned int taille>
-class SequenceD : public Sequence {
+template<int taille> class SequenceD : public Sequence {
 public:
     //
     //Un constructeur sans paramètre
@@ -62,4 +61,5 @@ public:
 };
 
 
-#endif //PROJET_CPP_SEQUENCED_H
+
+#endif //PROJET_SEQUENCED_H
