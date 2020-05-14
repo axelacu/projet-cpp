@@ -11,7 +11,7 @@ class Sequence {
     Sequence(int taille = 4);
     ~Sequence();
 // Un second constructeur qui construit une Sequence
-    ConstructionSequence : VOIR COURS 4
+    ConstructionSequence : VOIR COURS 4,
     // opérateur [] permet d’accéder a un bit de la séquence
     int& operator[](int);
     //renvoit la valeur d’un bit sans de la modifier
@@ -25,9 +25,10 @@ class Sequence {
     bool decalage();
 
     // Opérateur * pour deux Sequence(de même taille) données en paramètre.
-    // param sequence sequence donnée en paramètre.
-    // return Sequence correspondant au résultat du «ou exclusif» (XOR)
-    Sequence operator * (Sequence const &sequenceB);
+    // param sequence sequence donnée en paramètr
+    Sequence operator * (Sequence const &ConstructionSequence);
+
+    //
 
 };
 
