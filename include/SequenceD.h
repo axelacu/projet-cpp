@@ -8,7 +8,7 @@
 
 #include "Sequence.h"
 
-template<unsigned int taille> class SequenceD : public Sequence {
+template<int taille> class SequenceD : public Sequence {
 public:
     //
     //Un constructeur sans paramètre
