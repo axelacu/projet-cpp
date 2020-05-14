@@ -55,6 +55,30 @@ CMAKE_BINARY_DIR = C:\Users\OlivierPC\CLionProjects\projet-cpp\cmake-build-debug
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	"C:\Program Files\JetBrains\CLion 2020.1.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	"C:\Program Files\JetBrains\CLion 2020.1.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	"C:\Program Files\JetBrains\CLion 2020.1.1\bin\cmake\win\bin\cmake.exe" -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	"C:\Program Files\JetBrains\CLion 2020.1.1\bin\cmake\win\bin\cmake.exe" -P cmake_install.cmake
+.PHONY : install/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -76,6 +100,28 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	"C:\Program Files\JetBrains\CLion 2020.1.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	"C:\Program Files\JetBrains\CLion 2020.1.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -110,98 +156,95 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named projet_cpp
+# Target rules for targets named DES
 
 # Build rule for target.
-projet_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles\Makefile2 projet_cpp
-.PHONY : projet_cpp
+DES: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 DES
+.PHONY : DES
 
 # fast build rule for target.
-projet_cpp/fast:
-	$(MAKE) -f CMakeFiles\projet_cpp.dir\build.make CMakeFiles/projet_cpp.dir/build
-.PHONY : projet_cpp/fast
+DES/fast:
+	$(MAKE) -f src\DES\CMakeFiles\DES.dir\build.make src/DES/CMakeFiles/DES.dir/build
+.PHONY : DES/fast
 
-src/Sequence.obj: src/Sequence.cpp.obj
+#=============================================================================
+# Target rules for targets named MAIN_RUN
 
-.PHONY : src/Sequence.obj
+# Build rule for target.
+MAIN_RUN: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 MAIN_RUN
+.PHONY : MAIN_RUN
 
-# target to build an object file
-src/Sequence.cpp.obj:
-	$(MAKE) -f CMakeFiles\projet_cpp.dir\build.make CMakeFiles/projet_cpp.dir/src/Sequence.cpp.obj
-.PHONY : src/Sequence.cpp.obj
+# fast build rule for target.
+MAIN_RUN/fast:
+	$(MAKE) -f src\main\CMakeFiles\MAIN_RUN.dir\build.make src/main/CMakeFiles/MAIN_RUN.dir/build
+.PHONY : MAIN_RUN/fast
 
-src/Sequence.i: src/Sequence.cpp.i
+#=============================================================================
+# Target rules for targets named gmock_main
 
-.PHONY : src/Sequence.i
+# Build rule for target.
+gmock_main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 gmock_main
+.PHONY : gmock_main
 
-# target to preprocess a source file
-src/Sequence.cpp.i:
-	$(MAKE) -f CMakeFiles\projet_cpp.dir\build.make CMakeFiles/projet_cpp.dir/src/Sequence.cpp.i
-.PHONY : src/Sequence.cpp.i
+# fast build rule for target.
+gmock_main/fast:
+	$(MAKE) -f test\lib\googletest\googlemock\CMakeFiles\gmock_main.dir\build.make test/lib/googletest/googlemock/CMakeFiles/gmock_main.dir/build
+.PHONY : gmock_main/fast
 
-src/Sequence.s: src/Sequence.cpp.s
+#=============================================================================
+# Target rules for targets named gmock
 
-.PHONY : src/Sequence.s
+# Build rule for target.
+gmock: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 gmock
+.PHONY : gmock
 
-# target to generate assembly for a file
-src/Sequence.cpp.s:
-	$(MAKE) -f CMakeFiles\projet_cpp.dir\build.make CMakeFiles/projet_cpp.dir/src/Sequence.cpp.s
-.PHONY : src/Sequence.cpp.s
+# fast build rule for target.
+gmock/fast:
+	$(MAKE) -f test\lib\googletest\googlemock\CMakeFiles\gmock.dir\build.make test/lib/googletest/googlemock/CMakeFiles/gmock.dir/build
+.PHONY : gmock/fast
 
-src/SequenceD.obj: src/SequenceD.cpp.obj
+#=============================================================================
+# Target rules for targets named gtest
 
-.PHONY : src/SequenceD.obj
+# Build rule for target.
+gtest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 gtest
+.PHONY : gtest
 
-# target to build an object file
-src/SequenceD.cpp.obj:
-	$(MAKE) -f CMakeFiles\projet_cpp.dir\build.make CMakeFiles/projet_cpp.dir/src/SequenceD.cpp.obj
-.PHONY : src/SequenceD.cpp.obj
+# fast build rule for target.
+gtest/fast:
+	$(MAKE) -f test\lib\googletest\googletest\CMakeFiles\gtest.dir\build.make test/lib/googletest/googletest/CMakeFiles/gtest.dir/build
+.PHONY : gtest/fast
 
-src/SequenceD.i: src/SequenceD.cpp.i
+#=============================================================================
+# Target rules for targets named gtest_main
 
-.PHONY : src/SequenceD.i
+# Build rule for target.
+gtest_main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 gtest_main
+.PHONY : gtest_main
 
-# target to preprocess a source file
-src/SequenceD.cpp.i:
-	$(MAKE) -f CMakeFiles\projet_cpp.dir\build.make CMakeFiles/projet_cpp.dir/src/SequenceD.cpp.i
-.PHONY : src/SequenceD.cpp.i
+# fast build rule for target.
+gtest_main/fast:
+	$(MAKE) -f test\lib\googletest\googletest\CMakeFiles\gtest_main.dir\build.make test/lib/googletest/googletest/CMakeFiles/gtest_main.dir/build
+.PHONY : gtest_main/fast
 
-src/SequenceD.s: src/SequenceD.cpp.s
+#=============================================================================
+# Target rules for targets named runtest
 
-.PHONY : src/SequenceD.s
+# Build rule for target.
+runtest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 runtest
+.PHONY : runtest
 
-# target to generate assembly for a file
-src/SequenceD.cpp.s:
-	$(MAKE) -f CMakeFiles\projet_cpp.dir\build.make CMakeFiles/projet_cpp.dir/src/SequenceD.cpp.s
-.PHONY : src/SequenceD.cpp.s
-
-src/main.obj: src/main.cpp.obj
-
-.PHONY : src/main.obj
-
-# target to build an object file
-src/main.cpp.obj:
-	$(MAKE) -f CMakeFiles\projet_cpp.dir\build.make CMakeFiles/projet_cpp.dir/src/main.cpp.obj
-.PHONY : src/main.cpp.obj
-
-src/main.i: src/main.cpp.i
-
-.PHONY : src/main.i
-
-# target to preprocess a source file
-src/main.cpp.i:
-	$(MAKE) -f CMakeFiles\projet_cpp.dir\build.make CMakeFiles/projet_cpp.dir/src/main.cpp.i
-.PHONY : src/main.cpp.i
-
-src/main.s: src/main.cpp.s
-
-.PHONY : src/main.s
-
-# target to generate assembly for a file
-src/main.cpp.s:
-	$(MAKE) -f CMakeFiles\projet_cpp.dir\build.make CMakeFiles/projet_cpp.dir/src/main.cpp.s
-.PHONY : src/main.cpp.s
+# fast build rule for target.
+runtest/fast:
+	$(MAKE) -f test\DESTest\CMakeFiles\runtest.dir\build.make test/DESTest/CMakeFiles/runtest.dir/build
+.PHONY : runtest/fast
 
 # Help Target
 help:
@@ -209,18 +252,19 @@ help:
 	@echo ... all (the default if no target is provided)
 	@echo ... clean
 	@echo ... depend
-	@echo ... projet_cpp
+	@echo ... install/local
+	@echo ... install
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... src/Sequence.obj
-	@echo ... src/Sequence.i
-	@echo ... src/Sequence.s
-	@echo ... src/SequenceD.obj
-	@echo ... src/SequenceD.i
-	@echo ... src/SequenceD.s
-	@echo ... src/main.obj
-	@echo ... src/main.i
-	@echo ... src/main.s
+	@echo ... list_install_components
+	@echo ... install/strip
+	@echo ... DES
+	@echo ... MAIN_RUN
+	@echo ... gmock_main
+	@echo ... gmock
+	@echo ... gtest
+	@echo ... gtest_main
+	@echo ... runtest
 .PHONY : help
 
 
