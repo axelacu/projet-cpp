@@ -10,9 +10,17 @@ class Sequence {
     // Un constructeur prenant en paramètre un entier
     Sequence(int taille = 4);
     ~Sequence();
+
 // Un second constructeur qui construit une Sequence
     //ConstructionSequence : VOIR COURS 4,
-    list<char> list1;
+ConstSeq();
+int taille[4];
+    list<int> list1(4) ;
+    copy(taille, taille+4, list1.begin());
+    return list1;
+    cout>> list1>>
+    ~ConstSeq();
+
     // opérateur [] permet d’accéder a un bit de la séquence
     int& operator[](int);
     //renvoit la valeur d’un bit sans de la modifier
