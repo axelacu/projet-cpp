@@ -12,6 +12,7 @@ class Sequence {
     ~Sequence();
 // Un second constructeur qui construit une Sequence
     //ConstructionSequence : VOIR COURS 4,
+    list<char> list1;
     // opérateur [] permet d’accéder a un bit de la séquence
     int& operator[](int);
     //renvoit la valeur d’un bit sans de la modifier
