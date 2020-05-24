@@ -22,7 +22,7 @@ int taille[4];
     ~ConstSeq();
 
     // opérateur [] permet d’accéder a un bit de la séquence
-    int& operator[](int);
+    int& operator[](int );
     //renvoit la valeur d’un bit sans de la modifier
     int operator()() const ;
     // fonction membre size renvoie le nbre de bits de la séquence.
