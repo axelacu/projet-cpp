@@ -24,6 +24,6 @@ const char* Convert(unsigned int val)
 }
 
 int main() {
-    //cout<<Convert(1)<<endl;
+    cout<<Convert(1)<<endl;
     return 0;
 }
