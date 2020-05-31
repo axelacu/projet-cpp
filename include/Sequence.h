@@ -32,7 +32,7 @@ public:
     // fonction membre size renvoie le nbre de bits de la séquence.
     int size() const;
     //opérateur = renvoit et affecte à une séquence un bit
-    int& operator=(int);
+    void operator=(int);
 
     // fonction membre decalage
     void decalage(int);

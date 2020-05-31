@@ -50,27 +50,40 @@ int Sequence::operator()(int pos) const {
 int Sequence::size() const {
     return sequence_left.size();
 }
-//https://codes-sources.commentcamarche.net/source/9720-conversion-decimale-binaire
-int& Sequence::operator=(int valeur_entier) {
 
-    int bits, bit_fac;
-    char binary[255];
-    bits = int(log(valeur_entier)/log(2));
-    for(int i = 0; i < bits+1; ++i)
+
+//http://www.cplusplus.com/forum/general/65862/
+static std::string convert_to_binary(unsigned int val)
+{
+    std::string binary_string;
+    unsigned int mask = 1 << (sizeof(int) * 8 - 1);
+
+    for(int i = 0; i < sizeof(int) * 8; i++)
     {
-        bit_fac=int(pow(2,bits-i));
-        binary[i]=(valeur_entier / bit_fac > 0? '1' : '0');
-        valeur_entier=(valeur_entier / bit_fac > 0? valeur_entier - bit_fac : valeur_entier);
-    }
+        if( (val & mask) == 0 )
+            binary_string += '0' ;
+        else
+            binary_string+= '1' ;
 
-
-    for(int j=0; j<taille; ++j)
-    {
-        std::cout<<"interieur boucle : " << binary[j] <<std::endl;
-        sequence_left[j] = binary[j];
+        mask  >>= 1;
     }
+    return binary_string;
 }
 
+void Sequence::operator=(int valeur_entier) {
+
+    std::string value_binary_str = convert_to_binary(valeur_entier);
+    cout<<value_binary_str<<endl;
+    for(int last = (this->size()-1), decrease = 1; last >=0 ; last--){
+        if(last<value_binary_str.size()){
+            char val_char = value_binary_str[value_binary_str.size() - decrease];
+
+            int value = std::atoi(&val_char);
+            (this)->operator[](last) = value;
+            decrease++;
+        }
+    }
+}
 
 std::string Sequence::to_string() {
     std::string str = "";

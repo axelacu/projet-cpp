@@ -50,14 +50,18 @@ TEST(modif_seq,basic_test){
     std::cout<< "Seq2 after : " << sequence2.to_string() <<std::endl;
     ASSERT_EQ(sequence2.to_string(),"0000");
 
-    /*
-    std::cout<< "Test du = " <<std::endl;
+}
+
+TEST(operateur_egale,basic_test){
+
+    Sequence sequence1;
+
+    std::cout<< "Test du operateur= " <<std::endl;
     std::cout<< "Seq1 before : " << sequence1.to_string() <<std::endl;
-    sequence1=1;
+    sequence1=10;
     std::cout<< "Seq1 before : " << sequence1.to_string() <<std::endl;
-    std::string valtest = "0001";
+    std::string valtest = "1010";
     std::cout<< "resultat attendu : " << valtest <<std::endl;
 
-    ASSERT_TRUE(valtest==sequence1.to_string());**/
-
+    ASSERT_EQ(valtest,sequence1.to_string());
 }
