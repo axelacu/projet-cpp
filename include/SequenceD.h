@@ -9,8 +9,9 @@
 #include "Sequence.h"
 // on suppose que la la taille donnée en paramètre c'est celle la prmière sequence.
 template<int taille> class SequenceD : public Sequence {
+
 public:
-    Sequence droite;
+    Sequence sequence_droite;
 public:
     //
     //Un constructeur sans paramètre
@@ -42,34 +43,30 @@ private:
     /// fonction membre decalage qui prendra en paramètre un entier et qui effectuera un décalage à gauche des
     ///bits de chaque sous-séquence d’autant de bits qu’indiqué par le paramètre entier
   // on Utilise un void ou un BOOl ?
-    bool decalage();
+    void decalage(int);
 
     /// Opérateur * pour deux SequenceD(de même taille) donnée en paramètre.
     /// \param sequenceB sequence donnée en paramètre.
     /// \return SequenceD correspondant au résultat du «ou exclusif» (XOR)
 
-     // 2 Sequence héritées ?
-     SequenceD operator * (SequenceD const &sequenceB);
+     //renverra une SequenceD correspondant au résultat du « ou exclusif » (XOR) entre les deux séquences
+     //données en paramètres
+     SequenceD operator*(SequenceD const &sequenceB);
     //Surdéfinition opérateur
-    char& operator<<(SequenceD<64>);
-
-private:
-    Sequence SequenceDroite;
-
 public:
     const Sequence &right() const {
-        return SequenceDroite;
+        return sequence_droite;
     }
 
-    void setRight(const Sequence &sequenceDroite) {
-        SequenceDroite = sequenceDroite;
+    const Sequence &left() const {
+        return sequence_left;
+    }
+    void setRight(const Sequence &sequence) {
+        sequence_droite = sequence;
     }
 
     // TODO : Getter sous sequence Gauche ( ou fonction left)
-
-
 };
-
 
 
 #endif //PROJET_SEQUENCED_H

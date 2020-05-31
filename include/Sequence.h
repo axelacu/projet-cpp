@@ -12,7 +12,7 @@ class Sequence {
 
 public:
     int taille;
-    std::list<int> sequence;
+    std::list<int> sequence_left;
 
     // Un constructeur prenant en paramètre un entier
     Sequence(int taille = 4);
@@ -43,7 +43,7 @@ public:
     //En entrée nous retrouverons un vecteur d'entiers, recréation d'une nouvelle séquence à partir des élément
     //du vecteur, l'element en position i du vecteur se trouvera en positon i de la nouvelle sequence.
     // La taille de la la nouvelle sequence sera celle du vecteur
-    Sequence permutation(std::vector<int>);
+    Sequence permutation(std::vector<int>) const;
     //Le premier int correspond à l'indice de début(gauche) et le second à l'indice de fin (droite)
     Sequence sous_sequence(int, int);
 
