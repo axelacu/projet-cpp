@@ -4,22 +4,23 @@
 
 #ifndef PROJET_SEQUENCE_H
 #define PROJET_SEQUENCE_H
-
+#include<iostream>
+#include<list>
+#include <vector>
 
 class Sequence {
+    int taille;
+    std::list<int> sequence;
+
     // Un constructeur prenant en paramètre un entier
     Sequence(int taille = 4);
     ~Sequence();
 
-// Un second constructeur qui construit une Sequence
-    //ConstructionSequence : VOIR COURS 4,
-ConstSeq();
-int taille[4];
-    list<int> list1(4) ;
-    copy(taille, taille+4, list1.begin());
-    return list1;
-    cout>> list1>>
-    ~ConstSeq();
+    //
+    Sequence(std::list<Sequence>);
+   // ~Sequence();
+
+
 
     // opérateur [] permet d’accéder a un bit de la séquence
     int& operator[](int );
@@ -28,16 +29,21 @@ int taille[4];
     // fonction membre size renvoie le nbre de bits de la séquence.
     int size() const;
     //opérateur = renvoit et affecte à une séquence un bit
-    //int operator= Je ne comprends pas
+    int& operator=(int);
 
     // fonction membre decalage
-    bool decalage();
+    void decalage(int);
 
     // Opérateur * pour deux Sequence(de même taille) données en paramètre.
     // param sequence sequence donnée en paramètr
-    Sequence operator * (Sequence const &ConstructionSequence);
-
-    //
+    Sequence operator*(Sequence const&);
+    //Création d'une nouvelle séquence qui ne modifie pas la séquence initiale de l'objet
+    //En entrée nous retrouverons un vecteur d'entiers, recréation d'une nouvelle séquence à partir des élément
+    //du vecteur, l'element en position i du vecteur se trouvera en positon i de la nouvelle sequence.
+    // La taille de la la nouvelle sequence sera celle du vecteur
+    Sequence permutation(std::vector<int>);
+    //Le premier int correspond à l'indice de début(gauche) et le second à l'indice de fin (droite)
+    Sequence sous_sequence(int, int);
 
 };
 
