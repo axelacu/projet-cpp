@@ -4,7 +4,7 @@
 #include <vector>
 #include <initializer_list>
 #include <Sequence.h>
-
+#include <math.h>
 using namespace std;
 
 Sequence::Sequence(int taille)
@@ -26,7 +26,41 @@ Sequence::Sequence(std::list<Sequence> sequences_list) {
             sequence_left.push_back(bit);
             taille++;
         }
+    }
+}
+int& Sequence::operator[](int pos){
+    int pos_it=0;
+    for(std::deque<int>::iterator it= sequence_left.begin(); it!=sequence_left.end(); ++it)
+    {
+        if(pos_it==pos) return *it;   //On accède à l'élément pointé via l'étoile
+    }
 
+}
+
+int Sequence::operator()(int pos) const {
+    return sequence_left[pos];
+}
+
+int Sequence::size() const {
+    return sequence_left.size();
+}
+//https://codes-sources.commentcamarche.net/source/9720-conversion-decimale-binaire
+int& Sequence::operator=(int valeur_entier) {
+
+    int bits, bit_fac;
+    char binary[255];
+    bits = int(log(valeur_entier)/log(2));
+    for(int i = 0; i < bits+1; ++i)
+    {
+        bit_fac=int(pow(2,bits-i));
+        binary[i]=(valeur_entier / bit_fac > 0? '1' : '0');
+        valeur_entier=(valeur_entier / bit_fac > 0? valeur_entier - bit_fac : valeur_entier);
+    }
+
+
+    for(int j=0; j<taille; ++j)
+    {
+        sequence_left[j] = (int) binary[j];
     }
 }
 
