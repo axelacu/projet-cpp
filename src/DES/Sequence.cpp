@@ -35,8 +35,6 @@ int& Sequence::operator[](int pos){
     int pos_it=0;
     for(std::deque<int>::iterator it= sequence_left.begin(); it!=sequence_left.end(); ++it)
     {
-        std::cout<< "valeur it : " << *it<<std::endl;
-
         if(pos_it==pos){
             return (*it);   //On accède à l'élément pointé via l'étoile
         }
