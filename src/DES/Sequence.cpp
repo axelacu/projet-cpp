@@ -13,7 +13,7 @@ Sequence::Sequence(int taille)
 {//Attribution aléatoire de valeurs booléenneà la liste
     this->taille = taille;
     for(int i=0;i<taille;i++){
-        sequence_left.push_front(rand()%2);
+        sequence_left.push_back(rand()%2);
     }
 }
 //[s1,s2,s3]
@@ -35,7 +35,12 @@ int& Sequence::operator[](int pos){
     int pos_it=0;
     for(std::deque<int>::iterator it= sequence_left.begin(); it!=sequence_left.end(); ++it)
     {
-        if(pos_it==pos) return *it;   //On accède à l'élément pointé via l'étoile
+        std::cout<< "valeur it : " << *it<<std::endl;
+
+        if(pos_it==pos){
+            return (*it);   //On accède à l'élément pointé via l'étoile
+        }
+        pos_it++;
     }
 
 }

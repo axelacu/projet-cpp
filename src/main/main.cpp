@@ -24,6 +24,17 @@ const char* Convert(unsigned int val)
 }
 
 int main() {
-    cout<<Convert(1)<<endl;
+    //cout<<Convert(1)<<endl;
+    Sequence sequence;
+
+    cout<< "valeur renvoie : " << (sequence(2)) <<endl;
+
+
+    cout<<sequence.to_string()<<endl;
+    for(int i = 0; i < sequence.size(); i++){
+        //cout<<sequence(i)<<endl;
+    }
+
+
     return 0;
 }

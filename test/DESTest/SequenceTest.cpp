@@ -38,10 +38,19 @@ TEST(modif_seq,basic_test){
     std::cout<< "Seq2 before : " << sequence2.to_string() <<std::endl;
     sequence1[3]=0;
     std::cout<< "Seq2 after : " << sequence2.to_string() <<std::endl;
-    ASSERT_EQ(sequence2[3],0);
+    ASSERT_EQ(sequence2[4],1);
+    ASSERT_EQ(sequence2(4),1);
 
-    ASSERT_EQ(sequence2(3),0);
+    //test que des 0
+    std::cout<< "Test du [] " <<std::endl;
+    std::cout<< "Seq2 before : " << sequence2.to_string() <<std::endl;
+    for(int i = 0; i<sequence2.size();i++){
+        sequence2[i] = 0;
+    }
+    std::cout<< "Seq2 after : " << sequence2.to_string() <<std::endl;
+    ASSERT_EQ(sequence2.to_string(),"0000");
 
+    /*
     std::cout<< "Test du = " <<std::endl;
     std::cout<< "Seq1 before : " << sequence1.to_string() <<std::endl;
     sequence1=1;
@@ -49,6 +58,6 @@ TEST(modif_seq,basic_test){
     std::string valtest = "0001";
     std::cout<< "resultat attendu : " << valtest <<std::endl;
 
-    ASSERT_TRUE(valtest==sequence1.to_string());
+    ASSERT_TRUE(valtest==sequence1.to_string());**/
 
 }
