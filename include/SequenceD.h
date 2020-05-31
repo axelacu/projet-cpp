@@ -50,6 +50,8 @@ private:
 
      // 2 Sequence héritées ?
      SequenceD operator * (SequenceD const &sequenceB);
+    //Surdéfinition opérateur
+    char& operator<<(SequenceD<64>);
 
 private:
     Sequence SequenceDroite;
@@ -64,6 +66,8 @@ public:
     }
 
     // TODO : Getter sous sequence Gauche ( ou fonction left)
+
+
 };
 
 
