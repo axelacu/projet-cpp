@@ -21,5 +21,7 @@ int main(){
     sequence1[3] = val1;
 
     cout<<  "seq 2 : " << sequence1.to_string()<<endl;
+
+    rotate(ve.begin(), ve.begin()+pas, ve.end());
     return 0;
 }

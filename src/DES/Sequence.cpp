@@ -6,6 +6,7 @@
 #include <Sequence.h>
 #include <math.h>
 #include <time.h>
+#include <algorithm>
 
 using namespace std;
 
@@ -51,6 +52,9 @@ int Sequence::size() const {
     return sequence_left.size();
 }
 
+void Sequence::decalage(int pas)  {
+
+    this->sequence_left;
 
 //http://www.cplusplus.com/forum/general/65862/
 static std::string convert_to_binary(unsigned int val)
@@ -85,6 +89,13 @@ void Sequence::operator=(int valeur_entier) {
     }
 }
 
+        rotate(sequence_left.begin(), sequence_left.begin()+pas, sequence_left.end());
+}
+
+Sequence::Sequence(std::list<Sequence>, std::list<Sequence> ) {}
+Sequence operator*(Sequence const&);
+
+//affichage
 std::string Sequence::to_string() {
     std::string str = "";
     for(int i = 0 ; i < sequence_left.size(); i++){
@@ -93,7 +104,7 @@ std::string Sequence::to_string() {
     }
     return str;
 }
-
+//destructeur de la deque
 Sequence::~Sequence() {
     sequence_left.clear();
 }
