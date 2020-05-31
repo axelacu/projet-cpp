@@ -9,6 +9,8 @@
 #include <vector>
 
 class Sequence {
+
+public:
     int taille;
     std::list<int> sequence;
 

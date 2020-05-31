@@ -7,8 +7,10 @@
 
 
 #include "Sequence.h"
-
+// on suppose que la la taille donnée en paramètre c'est celle la prmière sequence.
 template<int taille> class SequenceD : public Sequence {
+public:
+    Sequence droite;
 public:
     //
     //Un constructeur sans paramètre
@@ -18,10 +20,11 @@ public:
     /// Un constructeur prenant en paramètre deux Sequence
     /// \param sequenceA
     /// \param sequenceB
-    SequenceD(Sequence& sequenceA, Sequence& sequenceB);
+    SequenceD(Sequence& gauche, Sequence& droite);
     /// destructeur
     ~SequenceD();
 
+private:
     /// L’opérateur [] qui permettra d’accéder (et potentiellement modifier) un bit de la séquence.
     /// \return
     int& operator[](int);
