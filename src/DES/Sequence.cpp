@@ -56,6 +56,9 @@ void Sequence::decalage(int pas)  {
 
     this->sequence_left;
 
+    rotate(sequence_left.begin(), sequence_left.begin()+pas, sequence_left.end());
+}
+
 //http://www.cplusplus.com/forum/general/65862/
 static std::string convert_to_binary(unsigned int val)
 {
@@ -88,13 +91,6 @@ void Sequence::operator=(int valeur_entier) {
         }
     }
 }
-
-        rotate(sequence_left.begin(), sequence_left.begin()+pas, sequence_left.end());
-}
-
-Sequence::Sequence(std::list<Sequence>, std::list<Sequence> ) {}
-Sequence operator*(Sequence const&);
-
 //affichage
 std::string Sequence::to_string() {
     std::string str = "";
