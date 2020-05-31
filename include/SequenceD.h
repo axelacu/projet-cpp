@@ -41,12 +41,15 @@ private:
 
     /// fonction membre decalage qui prendra en paramètre un entier et qui effectuera un décalage à gauche des
     ///bits de chaque sous-séquence d’autant de bits qu’indiqué par le paramètre entier
+  // on Utilise un void ou un BOOl ?
     bool decalage();
 
     /// Opérateur * pour deux SequenceD(de même taille) donnée en paramètre.
     /// \param sequenceB sequence donnée en paramètre.
     /// \return SequenceD correspondant au résultat du «ou exclusif» (XOR)
-    SequenceD operator * (SequenceD const &sequenceB);
+
+     // 2 Sequence héritées ?
+     SequenceD operator * (SequenceD const &sequenceB);
 
 private:
     Sequence SequenceDroite;
