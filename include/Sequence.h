@@ -5,14 +5,15 @@
 #ifndef PROJET_SEQUENCE_H
 #define PROJET_SEQUENCE_H
 #include<iostream>
-#include<list>
+#include<deque>
+#include <list>
 #include <vector>
 
 class Sequence {
 
 public:
     int taille;
-    std::list<int> sequence_left;
+    std::deque<int> sequence_left;
 
     // Un constructeur prenant en paramètre un entier
     Sequence(int taille = 4);
@@ -27,7 +28,7 @@ public:
     // opérateur [] permet d’accéder a un bit de la séquence
     int& operator[](int );
     //renvoit la valeur d’un bit sans de la modifier
-    int operator()() const ;
+    int operator()(int) const ;
     // fonction membre size renvoie le nbre de bits de la séquence.
     int size() const;
     //opérateur = renvoit et affecte à une séquence un bit

@@ -11,7 +11,7 @@
 template<int taille> class SequenceD : public Sequence {
 
 public:
-    Sequence sequence_droite;
+    Sequence sequence_right;
 public:
     //
     //Un constructeur sans paramètre
@@ -34,7 +34,7 @@ private:
     /// const spécifie que la fonction est une fonction « en lecture seule » qui ne modifie pas l’objet
     /// pour lequel elle est appelée
     /// \return
-    int operator()() const ;
+    int operator()(int) const ;
 
     /// fonction membre size qui renvoie le nombre de bits de la séquence.
     /// \return
@@ -55,14 +55,14 @@ private:
     //Surdéfinition opérateur
 public:
     const Sequence &right() const {
-        return sequence_droite;
+        return sequence_right;
     }
 
     const Sequence &left() const {
         return sequence_left;
     }
     void setRight(const Sequence &sequence) {
-        sequence_droite = sequence;
+        sequence_right = sequence;
     }
 
     // TODO : Getter sous sequence Gauche ( ou fonction left)
