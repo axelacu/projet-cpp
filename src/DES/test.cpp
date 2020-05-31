@@ -4,7 +4,6 @@
 #include <test.h>
 
 bool toto() {
-
     std::cout << "Hello, World!" << std::endl;
     return 1;
 }

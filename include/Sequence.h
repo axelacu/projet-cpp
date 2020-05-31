@@ -8,7 +8,7 @@
 #include<deque>
 #include <list>
 #include <vector>
-
+#include <string>
 class Sequence {
 
 public:
@@ -48,6 +48,7 @@ public:
     //Le premier int correspond à l'indice de début(gauche) et le second à l'indice de fin (droite)
     Sequence sous_sequence(int, int);
 
+    std::string to_string();
 };
 
 

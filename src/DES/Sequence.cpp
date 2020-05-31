@@ -5,10 +5,13 @@
 #include <initializer_list>
 #include <Sequence.h>
 #include <math.h>
+#include <time.h>
+
 using namespace std;
 
 Sequence::Sequence(int taille)
 {//Attribution aléatoire de valeurs booléenneà la liste
+    this->taille = taille;
     for(int i=0;i<taille;i++){
         sequence_left.push_back(rand()%2);
     }
@@ -60,9 +63,22 @@ int& Sequence::operator=(int valeur_entier) {
 
     for(int j=0; j<taille; ++j)
     {
-        sequence_left[j] = (int) binary[j];
+        std::cout<<"interieur boucle : " << binary[j] <<std::endl;
+        sequence_left[j] = binary[j];
     }
 }
 
 
+std::string Sequence::to_string() {
+    std::string str = "";
+    for(int i = 0 ; i < sequence_left.size(); i++){
+
+        str+=std::to_string(sequence_left[i]);
+    }
+    return str;
+}
+
+Sequence::~Sequence() {
+    sequence_left.clear();
+}
 
