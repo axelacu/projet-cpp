@@ -23,8 +23,6 @@ public:
     Sequence(std::list<Sequence>);
    // ~Sequence();
 
-
-
     // opérateur [] permet d’accéder a un bit de la séquence
     int& operator[](int );
     //renvoit la valeur d’un bit sans de la modifier

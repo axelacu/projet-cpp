@@ -80,7 +80,6 @@ static std::string convert_to_binary(unsigned int val)
 void Sequence::operator=(int valeur_entier) {
 
     std::string value_binary_str = convert_to_binary(valeur_entier);
-    cout<<value_binary_str<<endl;
     for(int last = (this->size()-1), decrease = 1; last >=0 ; last--){
         if(last<value_binary_str.size()){
             char val_char = value_binary_str[value_binary_str.size() - decrease];

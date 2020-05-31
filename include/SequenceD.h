@@ -8,22 +8,26 @@
 
 #include "Sequence.h"
 // on suppose que la la taille donnée en paramètre c'est celle la prmière sequence.
-template<int taille> class SequenceD : public Sequence {
+template<int size_para = 4> class SequenceD : public Sequence {
 
 public:
-    Sequence sequence_right;
+    Sequence sequence_right = Sequence(size_para);
 public:
     //
     //Un constructeur sans paramètre
     //
-    SequenceD();
+    SequenceD():Sequence(size_para){
+        taille=size_para;
 
+    };
     /// Un constructeur prenant en paramètre deux Sequence
     /// \param sequenceA
     /// \param sequenceB
     SequenceD(Sequence& gauche, Sequence& droite);
     /// destructeur
-    ~SequenceD();
+    ~SequenceD(){
+        sequence_left.clear();
+    }
 
 private:
     /// L’opérateur [] qui permettra d’accéder (et potentiellement modifier) un bit de la séquence.
@@ -65,8 +69,14 @@ public:
         sequence_right = sequence;
     }
 
+    std::string to_string(){
+        return Sequence::to_string()  + " " + sequence_right.to_string() ;
+    }
+
     // TODO : Getter sous sequence Gauche ( ou fonction left)
 };
+
+int toto_2();
 
 
 #endif //PROJET_SEQUENCED_H
