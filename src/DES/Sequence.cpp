@@ -118,3 +118,13 @@ Sequence Sequence::operator*(const Sequence & sequence) {
     }
     return sequence_res;
 }
+//[1100]
+//(0,3,2,1)
+// [1,0 , 0, 1]
+Sequence Sequence::permutation(std::vector<int> vector) const {
+    Sequence sequence = Sequence(vector.size());
+    for(int pos = 0; pos < sequence.size(); pos++){
+        sequence[pos] = this->operator()(vector[pos]);
+    }
+    return sequence;
+}

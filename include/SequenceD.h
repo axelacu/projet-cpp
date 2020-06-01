@@ -18,7 +18,6 @@ public:
     //
     SequenceD():Sequence(size_para){
         taille=size_para;
-
     };
     /// Un constructeur prenant en paramètre deux Sequence
     /// \param sequenceA

@@ -93,7 +93,27 @@ TEST(operator_etoile,basic_test){
 
     cout<< "Sequence 1 : " << sequence1.to_string()<<endl;
     cout<< "Sequence 2 : " << sequence2.to_string()<<endl;
-    cout<< "Sequence 3 : " << (sequence1*sequence2).to_string()<<endl;
+    Sequence sequence3 = sequence1*sequence2;
+    cout<< "Sequence 3 : " << (sequence3).to_string()<<endl;
 
+    for(int i = 0 ; i < sequence1.size();i++){
+        bool bit_s1_val = sequence1(i);
+        bool bit_s2_val = sequence2(i);
+        ASSERT_EQ(!bit_s1_val != !bit_s2_val,sequence3(i));
+    }
 
+}
+
+TEST(basic_permute,basic_test){
+    Sequence sequence;
+    sequence[0] = 1;
+    sequence[1] = 1;
+    sequence[2] = 0;
+    sequence[3] = 0;
+    cout<<"valeur de la sequence : " << sequence.to_string() << endl;
+    vector<int> vect = {0,3,2,1};
+    Sequence seq_permute = sequence.permutation(vect);
+    cout<<"valeur de seq_permut " << seq_permute.to_string() << endl;
+
+    ASSERT_EQ("1001",seq_permute.to_string());
 }
