@@ -14,6 +14,7 @@ SequenceD<48> KeyGen::next() {
     //get bits rotated by Round number
     int step = LS[this->round];
     this->round++;
+
     //appliying left shift of the sequence.
     this->sequenceD.decalage(step);
     Permutation<56,48> perm;

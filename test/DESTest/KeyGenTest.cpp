@@ -22,16 +22,7 @@ TEST(test_keyGenNext,basic_test) {
     ASSERT_EQ(keyGen.sequenceD.to_string(),after_pc1);
 
     //modifier sequenceD de keygen pour faciliter test
-    SequenceD<56> sequenceKeyGen;
-    for(int i=1 ; i < 57; i++){
-        sequenceD[i-1] = i;
-    }
-
-    keyGen.sequenceD = sequenceKeyGen;
-
-    SequenceD<48> sequencepc2 = keyGen.next();
-
-
-    cout<< sequencepc2.to_string()<<endl;
-
+    SequenceD<48> cleSeq = keyGen.next();
+    std::string cle_string = "10513460491733572919423352625445859136271841 2228395437447305532329612138631520451413625531";
+    ASSERT_EQ(cle_string,cleSeq.to_string());
 }
