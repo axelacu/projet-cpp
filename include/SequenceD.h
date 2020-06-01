@@ -8,7 +8,7 @@
 
 #include "Sequence.h"
 // on suppose que la la taille donnée en paramètre c'est celle la prmière sequence.
-template<int size_para = 4> class SequenceD : public Sequence {
+template<const int size_para = 4> class SequenceD : public Sequence {
 
 public:
     Sequence sequence_right = Sequence(size_para/2);
@@ -94,14 +94,14 @@ public:
      //renverra une SequenceD correspondant au résultat du « ou exclusif » (XOR) entre les deux séquences
      //données en paramètres
      //TODO: TESTER
-    SequenceD operator*(SequenceD const &sequenceB)
+    SequenceD operator*(SequenceD &sequenceB)
     {
         if(sequenceB.size() != this->size()){
             std::cout<<" sequence de tailles differentes "<<std::endl;
             exit(EXIT_FAILURE);
         }
 
-        SequenceD sequence_res = SequenceD<sequenceB.size()>();
+        SequenceD sequence_res = SequenceD(sequenceB.left(),sequenceB.right());
 
         for(int pos = 0; pos < this->size();pos++){
             bool bit_s1_val = sequenceB(pos);
