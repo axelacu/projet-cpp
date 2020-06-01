@@ -4,6 +4,7 @@
 #include <SequenceD.h>
 #include <time.h>
 #include <cstring>
+#include <KeyGen.h>
 
 using namespace std;
 
@@ -16,10 +17,16 @@ void afficher(deque<int> deque){
 
 
 int main() {
-
+    /**
+     * Génaration de 16 clés à partir d'une clé random
+     */
     SequenceD<64> sequenceD;
 
-    affichage(sequenceD);
+    KeyGen keyGen(sequenceD);
+
+    for(int i = 0; i<16;i++){
+        cout<<"Cle " << i << "\t" << keyGen.next().to_string() <<endl;
+    }
 
 
     /**
