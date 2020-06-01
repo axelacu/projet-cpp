@@ -107,3 +107,8 @@ TEST(sous_seq,basic_test){
     cout<< "SOUS SEQ : " << sequence.to_string()<<endl;
 
 }
+
+TEST(iostream_test,basic_test){
+    SequenceD<64> sequenceD;
+    cout<<sequenceD;
+}

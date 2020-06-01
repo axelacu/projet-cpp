@@ -53,4 +53,5 @@ public:
 };
 
 
+
 #endif //PROJET_SEQUENCE_H

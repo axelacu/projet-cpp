@@ -7,6 +7,4 @@ add_library(DES
         Sequence.cpp
         ${projet_SOURCE_DIR}/include/Sequence.h
         test.cpp
-        ${projet_SOURCE_DIR}/include/test.h
-        NonMember.cpp
-        ${projet_SOURCE_DIR}/include/NonMember.h)
+        ${projet_SOURCE_DIR}/include/test.h)
