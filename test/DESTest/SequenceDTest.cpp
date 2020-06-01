@@ -31,7 +31,18 @@ TEST(initialize_seqD,basic_test){
 
 }
 
+TEST(crochet_seqD, basic_test){
+    SequenceD<8> sequence1;
 
-TEST(initialize_seqD,basic_test){
+    sequence1[0] = 1;
+    sequence1[1] = 1;
+    sequence1[2] = 1;
+    sequence1[3] = 1;
+    sequence1[4] = 0;
+    sequence1[5] = 1;
+    sequence1[6] = 0;
+    sequence1[7] = 1;
 
+    ASSERT_EQ("1111 0101",sequence1.to_string());
+    ASSERT_EQ(1,sequence1(1));
 }
