@@ -31,13 +31,17 @@ public:
 private:
     /// L’opérateur [] qui permettra d’accéder (et potentiellement modifier) un bit de la séquence.
     /// \return
-    int& operator[](int);
+    int& operator[](int valeur_entier){
+
+    }
 
     /// L’opérateur () qui renverra la valeur d’un bit sans permettre de la modifier
     /// const spécifie que la fonction est une fonction « en lecture seule » qui ne modifie pas l’objet
     /// pour lequel elle est appelée
     /// \return
-    int operator()(int) const ;
+    int operator()(int valeur_entier) const{
+
+    }
 
     /// fonction membre size qui renvoie le nombre de bits de la séquence.
     /// \return

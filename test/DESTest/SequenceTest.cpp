@@ -117,3 +117,17 @@ TEST(basic_permute,basic_test){
 
     ASSERT_EQ("1001",seq_permute.to_string());
 }
+
+TEST(basic_sousseq,basic_test){
+    Sequence sequence;
+    sequence[0] = 1;
+    sequence[1] = 1;
+    sequence[2] = 0;
+    sequence[3] = 0;
+    cout<<"affichage seq 1 " << sequence.to_string()<< endl;
+
+    Sequence sequence_res   = sequence.sous_sequence(1,4);
+    cout<<"affichage nouvelle sequence " << sequence_res.to_string()<< endl;
+
+    ASSERT_EQ(sequence_res.to_string(),"100");
+}
