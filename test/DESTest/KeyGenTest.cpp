@@ -8,7 +8,14 @@
 #include <Permutation.h>
 #include <KeyGen.h>
 
-using namespace std;
+using namespace std
+/**
+ *
+ * Contient un ensemble tests basique pour nos fonctions (certains test sont des affichages)
+ * de KEYGEN
+ *
+ */
+
 TEST(test_keyGenNext,basic_test) {
     SequenceD<64> sequenceD;
     for(int i=1 ; i < 65; i++){

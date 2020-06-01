@@ -4,7 +4,11 @@
 
 #include <include/gtest/gtest.h>
 #include <test.h>
-
+/**
+ *
+ * TEST DE LA LIBRARI GOOGLE POUR LE TEST UNITAIRE C++
+ *
+ */
 TEST(basic_test,toto_test){
     ASSERT_TRUE(toto());
 }

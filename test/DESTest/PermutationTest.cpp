@@ -9,6 +9,12 @@
 #include <KeyGen.h>
 
 using namespace std;
+/**
+ *
+ * Contient un ensemble tests basique pour nos fonctions (certains test sont des affichages)
+ *  TEST Permutation
+ *
+ */
 TEST(test_permetation,basic_test){
     SequenceD<64> sequenceD;
     for(int i=1 ; i < 65; i++){

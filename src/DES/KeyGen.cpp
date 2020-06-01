@@ -4,6 +4,7 @@
 
 #include "KeyGen.h"
 #include <Permutation.h>
+//Key Gen pour la génération des clés
 KeyGen::KeyGen(SequenceD<64>& sequence) {
     Permutation<64,56> perm;
     this->round = 0;

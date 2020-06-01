@@ -11,7 +11,7 @@
 #include <stdlib.h>
 
 using namespace std;
-
+//depreciate.
 //https://stackoverflow.com/questions/23344257/convert-a-string-of-binary-into-an-ascii-string-c
 int main(){
 

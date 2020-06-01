@@ -8,14 +8,6 @@
 
 using namespace std;
 
-void afficher(deque<int> deque){
-    for(int i = 0; i < deque.size(); i++){
-        cout<< deque[i];
-    }
-    cout<<endl;
-}
-
-
 int main() {
     /**
      * Génaration de 16 clés à partir d'une clé random

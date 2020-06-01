@@ -6,7 +6,12 @@
 #include <test.h>
 #include <Sequence.h>
 #include <list>
-
+/**
+ *
+ * Contient un ensemble tests basique pour nos fonctions (certains test sont des affichages)
+ * de Sequence
+ *
+ */
 using namespace std;
 TEST(initialize_seq,basic_test){
     Sequence sequence1;

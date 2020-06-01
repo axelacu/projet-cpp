@@ -4,8 +4,8 @@
 
 #include <SequenceD.h>
 
-//https://stackoverflow.com/questions/46284458/class-template-with-one-parameter-and-default-value
-
+// ici on trouve seulement les fonctions non membres
+// l'implementation des methodes de la classe sont dans SequenceD.h
 
 //https://stackoverflow.com/questions/23344257/convert-a-string-of-binary-into-an-ascii-string-c
 const char* stringToChar(std::string data){
@@ -22,6 +22,8 @@ const char* stringToChar(std::string data){
     return output.c_str();
 }
 
+//operateur << fonctionne mais à du mal avec l'encriptage des ascciii
+//si elle est utilisé ailleur elle fonctionne très bien or avec out du ostream problème d'encodage.
 std::ostream& operator<<(std::ostream& out,SequenceD<64> seqD64)
 {
     for(int i=0;i<64;i+=8)
@@ -37,6 +39,7 @@ std::ostream& operator<<(std::ostream& out,SequenceD<64> seqD64)
     return out;
 }
 
+
 const std::string charToBinary(char c) {
     std::string str;
     for (int i = 7; i >= 0; --i) {
@@ -45,6 +48,7 @@ const std::string charToBinary(char c) {
 
     return str;
 }
+
 
 std::istream& operator>>(std::istream& in,SequenceD<64> &seqD64){
     char entre[8];

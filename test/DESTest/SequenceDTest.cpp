@@ -7,6 +7,13 @@
 #include <SequenceD.h>
 
 using namespace std;
+
+/**
+ *
+ * Contient un ensemble tests basique pour nos fonctions (certains test sont des affichages)
+ * de SequenceD et des methodes non mèmbre utilisé par celle-ci
+ *
+ */
 TEST(initialize_seqD,basic_test){
     SequenceD<8> sequenceD;
 

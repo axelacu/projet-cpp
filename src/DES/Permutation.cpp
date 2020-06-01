@@ -3,3 +3,4 @@
 //
 
 #include "Permutation.h"
+//fichier vide car le code est dans le .h en raison de la contraintes des templates

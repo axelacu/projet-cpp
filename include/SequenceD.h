@@ -17,6 +17,7 @@
 template<const int size_para = 4> class SequenceD : public Sequence {
 
 public:
+    // sequence de droite
     Sequence sequence_right = Sequence(size_para/2);
 public:
     //
