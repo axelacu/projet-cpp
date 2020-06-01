@@ -32,15 +32,19 @@ public:
     /// L’opérateur [] qui permettra d’accéder (et potentiellement modifier) un bit de la séquence.
     /// \return
     int& operator[](int valeur_entier){
-            int position=0;
-            int moitie = size_para/2;
+
+            int moitie = this->size()/2;
+
 
             if(valeur_entier<moitie)
             {
                 return Sequence::operator[](valeur_entier);
             } else
             {
-                return sequence_right[valeur_entier];
+                //4 --> première de la sequence right
+                //5 --> la deuxieme  de la sequence right
+
+                return sequence_right[valeur_entier-moitie];
             }
     }
 
@@ -49,8 +53,17 @@ public:
     /// pour lequel elle est appelée
     /// \return
     int operator()(int valeur_entier) const{
+        int moitie = this->size()/2;
+        if(valeur_entier<moitie)
+        {
+            return Sequence::operator()(valeur_entier);
+        } else
+        {
+            //4 --> première de la sequence right
+            //5 --> la deuxieme  de la sequence right
 
-        return this->operator[](valeur_entier);
+            return sequence_right(valeur_entier-moitie);
+        }
 
     }
 
