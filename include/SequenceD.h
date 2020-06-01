@@ -22,7 +22,13 @@ public:
     /// Un constructeur prenant en paramètre deux Sequence
     /// \param sequenceA
     /// \param sequenceB
-    SequenceD(Sequence& gauche, Sequence& droite);
+    SequenceD(Sequence& gauche, Sequence& droite){
+        this->sequence_right = droite;
+        sequence_left.clear();
+        for(int i = 0; i< gauche.size(); i++){
+            sequence_left.push_back(gauche[i]);
+        }
+    }
     /// destructeur
     ~SequenceD(){
         sequence_left.clear();
