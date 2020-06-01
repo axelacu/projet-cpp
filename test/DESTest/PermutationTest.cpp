@@ -14,11 +14,10 @@ TEST(test_permetation,basic_test){
     for(int i=1 ; i < 65; i++){
         sequenceD[i-1] = i;
     }
-    cout<<sequenceD.to_string()<<endl;
 
     Permutation<64,56> perm;
 
-    Sequence sequence = perm(sequenceD,PC1);
+    SequenceD<56> sequence = perm(sequenceD,PC1);
 
     cout<<sequence.to_string()<<endl;
 }
