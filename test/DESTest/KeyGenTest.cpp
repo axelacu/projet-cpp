@@ -8,7 +8,7 @@
 #include <Permutation.h>
 #include <KeyGen.h>
 
-using namespace std
+using namespace std;
 /**
  *
  * Contient un ensemble tests basique pour nos fonctions (certains test sont des affichages)
