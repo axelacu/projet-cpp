@@ -11,13 +11,13 @@
 template<int size_para = 4> class SequenceD : public Sequence {
 
 public:
-    Sequence sequence_right = Sequence(size_para);
+    Sequence sequence_right = Sequence(size_para/2);
 public:
     //
     //Un constructeur sans paramètre
     //
-    SequenceD():Sequence(size_para){
-        taille=size_para;
+    SequenceD():Sequence(size_para/2){
+        taille=size_para/2;
     };
     /// Un constructeur prenant en paramètre deux Sequence
     /// \param sequenceA
@@ -28,7 +28,7 @@ public:
         sequence_left.clear();
     }
 
-private:
+public:
     /// L’opérateur [] qui permettra d’accéder (et potentiellement modifier) un bit de la séquence.
     /// \return
     int& operator[](int valeur_entier){
@@ -45,12 +45,17 @@ private:
 
     /// fonction membre size qui renvoie le nombre de bits de la séquence.
     /// \return
-    int size() const;
+    int size() const{
+        return Sequence::size() + sequence_right.size();
+    }
 
     /// fonction membre decalage qui prendra en paramètre un entier et qui effectuera un décalage à gauche des
     ///bits de chaque sous-séquence d’autant de bits qu’indiqué par le paramètre entier
   // on Utilise un void ou un BOOl ?
-    void decalage(int);
+    void decalage(int pas){
+        Sequence::decalage(pas);
+        sequence_right.decalage(pas);
+    }
 
     /// Opérateur * pour deux SequenceD(de même taille) donnée en paramètre.
     /// \param sequenceB sequence donnée en paramètre.
@@ -58,15 +63,32 @@ private:
 
      //renverra une SequenceD correspondant au résultat du « ou exclusif » (XOR) entre les deux séquences
      //données en paramètres
-     SequenceD operator*(SequenceD const &sequenceB);
+    SequenceD operator*(SequenceD const &sequenceB)
+    {
+        if(sequenceB.size() != this->size()){
+            std::cout<<" sequence de tailles differentes "<<std::endl;
+            exit(EXIT_FAILURE);
+        }
+
+        SequenceD sequence_res = SequenceD<sequenceB.size()>();
+
+        for(int pos = 0; pos < this->size();pos++){
+            bool bit_s1_val = sequenceB(pos);
+            bool bit_s2_val = this->operator()(pos);
+            sequence_res[pos] = !bit_s1_val != !bit_s2_val;
+        }
+
+        return sequence_res;
+    }
+
     //Surdéfinition opérateur
 public:
-    const Sequence &right() const {
+    Sequence &right() {
         return sequence_right;
     }
 
-    const Sequence &left() const {
-        return sequence_left;
+    Sequence &left()  {
+        return super_class();
     }
     void setRight(const Sequence &sequence) {
         sequence_right = sequence;

@@ -46,6 +46,9 @@ public:
     //Le premier int correspond à l'indice de début(gauche) et le second à l'indice de fin (droite)
     Sequence sous_sequence(int, int);
 
+    Sequence& super_class(){
+        return (*this);
+    }
     std::string to_string();
 };
 
