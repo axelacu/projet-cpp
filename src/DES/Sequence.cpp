@@ -91,7 +91,7 @@ void Sequence::operator=(int valeur_entier) {
     }
 }
 
-
+// lE DERNIER ATTRIBUT EST EXCLU
 Sequence Sequence::sous_sequence(int begin, int fin) {
     Sequence seq_res = Sequence(fin-begin);
     // pour chaque element entre begin et fin de la sequence le mettre dans seq_res

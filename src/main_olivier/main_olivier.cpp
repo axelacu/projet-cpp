@@ -6,26 +6,17 @@
 using namespace std;
 
 int main(){
+
     Sequence sequence1;
 
-    cout<< "seq 1 : " <<sequence1.to_string()<<endl;
+    cout<<"affichage seq 1 " << sequence1.to_string()<< endl;
 
-    int val1 = sequence1(0);
-    int val2 = sequence1(1);
-    int val3 = sequence1(2);
-    int val4 = sequence1(3);
+    Sequence sequence_res   = sequence1.sous_sequence(1,4);
+    cout<<"affichage nouvelle sequence " << sequence_res.to_string()<< endl;
 
-    sequence1[0] = val2;
-    sequence1[1] = val3;
-    sequence1[2] = val4;
-    sequence1[3] = val1;
 
-    cout<<  "seq 2 : " << sequence1.to_string()<<endl;
 
-    cout<< "test"<<endl;
-    Sequence sequence;
-    cout<<" sequence avant rot " <<sequence.to_string()<< endl;
-    sequence.decalage(3);
-    cout<<" sequence apres rot " <<sequence.to_string()<< endl;
     return 0;
+
+
 }
