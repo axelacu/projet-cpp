@@ -112,3 +112,50 @@ TEST(iostream_test,basic_test){
     SequenceD<64> sequenceD;
     cout<<sequenceD;
 }
+
+TEST(test_modif_blank,basic_test){
+    SequenceD<64> sequenceD;
+
+    for(int i = 0; i<sequenceD.size();i++){
+        sequenceD[i] = 0;
+    }
+    cout<<sequenceD.to_string()<<endl;
+}
+
+TEST(test_modif_cin,basic_test){
+    //0110000101100001011000010110000101100001011000010110000101100001
+    /**
+    char* value;
+    SequenceD<64> sequenceD;
+    cin>>sequenceD;
+    cout<<sequenceD.to_string()<<endl;
+
+     **/
+}
+
+TEST(test_de_cin_qui_fonctionne,basic_test){
+    SequenceD<64> seqD64;
+
+    for(int i= 0; i<seqD64.size();i+=8){
+        Sequence sequence = seqD64.sous_sequence(i,i+8);
+        std::string contseq = sequence.to_string();
+        char val= strtol(contseq.c_str(),0,2); //*stringToChar(contseq);
+        cout<<val;
+    }
+}
+
+TEST(read_and_write,basic_test){
+    // a mettre dans un main
+    /**
+    SequenceD<64> sequenceD;
+
+    write(cout,sequenceD);
+    cout<<endl;
+    //1100100000111111101010010010011010101110110110111010011111100111
+
+    read(cin,sequenceD);
+
+    cout<<sequenceD.to_string()<<endl;
+
+     **/
+}

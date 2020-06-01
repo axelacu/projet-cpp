@@ -11,6 +11,8 @@
 #include <bitset>
 #include <cstring>
 #include <bits/stdc++.h>
+#include <stdio.h>
+#include <stdlib.h>
 // on suppose que la la taille donnée en paramètre c'est celle la prmière sequence.
 template<const int size_para = 4> class SequenceD : public Sequence {
 
@@ -147,6 +149,8 @@ public:
     // TODO : Getter sous sequence Gauche ( ou fonction left)
 
     friend std::istream& operator>>(std::istream& in,SequenceD<64> &seqD64);
+    friend void write(std::ostream& out,SequenceD<64> &seqD64);
+    friend void read(std::istream& in,SequenceD<64> &sequenceD);
 };
 
 
@@ -171,46 +175,69 @@ std::ostream& operator<<(std::ostream& out,SequenceD<64> seqD64)
     {
         Sequence sequence = seqD64.sous_sequence(i,i+8);
         std::string contseq = sequence.to_string();
-        char val= *stringToChar(contseq);
+        //on a utilisé de librairie orienté C et pas c++ sinon on a une autre methode, qui utilise que du C++
+        char val= strtol(contseq.c_str(),0,2);  //*stringToChar(contseq);
+
+        //std::cout<<val<<std::endl;
         out<<val;
     }
     return out;
 }
 
-const char* charToBinary(char c) {
+const std::string charToBinary(char c) {
     std::string str;
     for (int i = 7; i >= 0; --i) {
         str+= ((c & (1 << i))? '1' : '0');
-
-        std::cout<<str<<std::endl;
     }
-    std::cout<<str<<std::endl;
-    return str.c_str();
+
+    return str;
 }
 
 std::istream& operator>>(std::istream& in,SequenceD<64> &seqD64){
     char entre[8];
     in>>entre;
 
-    for(int bit_index = 0;bit_index<8;bit_index++){
-        const char* binary_char = charToBinary(entre[bit_index]);
-        std::cout<<entre[bit_index]<<std::endl;
-        for(int i = 0;i<64;i++){
-            switch (binary_char[i]) {
-                case '1':
-                    seqD64[i] = 1;
-                    break;
-                case '0':
-                    seqD64[i] = 0;
-                    break;
-                default:
-                    seqD64[i] = 0;
+    for(int bit_index = 0,bit_seq = 0;bit_index<8;bit_index++){
+
+        if(entre[bit_index] == '\0'){
+            for(int j = bit_seq; j<64;j++){
+                seqD64[j] = 0;
+            }
+            break;
+        }
+        std::string binary_char = charToBinary(entre[bit_index]);
+        //std::cout<<entre[bit_index]<<std::endl;
+        //std::cout<<binary_char<<std::endl;
+        for(int i = 0;i < 8;i++,bit_seq++){
+            if(binary_char[i] == '1'){
+                seqD64[bit_seq] = 1;
+            }
+            else {
+                seqD64[bit_seq] = 0;
             }
         }
     }
     return in;
 }
 
+void write(std::ostream& out,SequenceD<64> &seqD64){
+    out.write((seqD64.left().to_string() + seqD64.right().to_string()).c_str(),seqD64.size());
 
+}
+
+void read(std::istream& in,SequenceD<64> &seqD64){
+    char lecture[64];
+    in.read(lecture,seqD64.size());
+
+    for(int i = 0; i<64;i++){
+        if(lecture[i] == '1'){
+            seqD64[i] = 1;
+        }
+        else {
+            seqD64[i] = 0;
+        }
+    }
+
+}
 
 #endif //PROJET_SEQUENCED_H

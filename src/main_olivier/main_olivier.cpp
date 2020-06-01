@@ -7,6 +7,8 @@
 #include <string>
 #include <sstream>
 #include <bitset>
+#include <stdio.h>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -18,7 +20,7 @@ int main(){
     for(int i= 0; i<seqD64.size();i+=8){
         Sequence sequence = seqD64.sous_sequence(i,i+8);
         std::string contseq = sequence.to_string();
-        char val= *stringToChar(contseq);
+        char val= strtol(contseq.c_str(),0,2); //*stringToChar(contseq);
         cout<<val;
     }
 
