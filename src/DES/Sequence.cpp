@@ -104,3 +104,17 @@ Sequence::~Sequence() {
     sequence_left.clear();
 }
 
+
+Sequence Sequence::operator*(const Sequence & sequence) {
+    if(sequence.size() != this->size()){
+        cout<<"sequence de tailles differentes"<< endl;
+        exit(EXIT_FAILURE);
+    }
+    Sequence sequence_res = Sequence(this->size());
+    for(int pos = 0; pos < this->size();pos++){
+        bool bit_s1_val = sequence(pos);
+        bool bit_s2_val = this->operator()(pos);
+        sequence_res[pos] = !bit_s1_val != !bit_s2_val;
+    }
+    return sequence_res;
+}

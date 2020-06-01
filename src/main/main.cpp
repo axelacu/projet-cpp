@@ -14,12 +14,7 @@ void afficher(deque<int> deque){
 }
 
 int main() {
-    SequenceD<2> sr;
-    cout<<sr.to_string()<<endl;
-    afficher(sr.sequence_left);
-    afficher(sr.sequence_right.sequence_left);
 
-    return  0;
 }
 
 

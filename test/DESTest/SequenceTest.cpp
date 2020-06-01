@@ -7,6 +7,7 @@
 #include <Sequence.h>
 #include <list>
 
+using namespace std;
 TEST(initialize_seq,basic_test){
     Sequence sequence1;
     Sequence sequence2;
@@ -64,4 +65,35 @@ TEST(operateur_egale,basic_test){
     std::cout<< "resultat attendu : " << valtest <<std::endl;
 
     ASSERT_EQ(valtest,sequence1.to_string());
+}
+
+TEST(basic_decalage,basic_test){
+
+    Sequence sequence1;
+    Sequence seq_attendu;
+    int val1 = sequence1(0);
+    int val2 = sequence1(1);
+    int val3 = sequence1(2);
+    int val4 = sequence1(3);
+
+    seq_attendu[0] = val2;
+    seq_attendu[1] = val3;
+    seq_attendu[2] = val4;
+    seq_attendu[3] = val1;
+
+    sequence1.decalage(1);
+
+    ASSERT_EQ(sequence1.to_string(),seq_attendu.to_string());
+
+}
+
+TEST(operator_etoile,basic_test){
+    Sequence sequence1;
+    Sequence sequence2;
+
+    cout<< "Sequence 1 : " << sequence1.to_string()<<endl;
+    cout<< "Sequence 2 : " << sequence2.to_string()<<endl;
+    cout<< "Sequence 3 : " << (sequence1*sequence2).to_string()<<endl;
+
+
 }
