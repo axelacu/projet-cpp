@@ -3,6 +3,7 @@
 #include <Sequence.h>
 #include <SequenceD.h>
 #include <time.h>
+#include <cstring>
 
 using namespace std;
 
@@ -13,8 +14,13 @@ void afficher(deque<int> deque){
     cout<<endl;
 }
 
-int main() {
 
+int main() {
+    char* value;
+    SequenceD<64> sequenceD;
+    cin>>sequenceD;
+    cout<<sequenceD.to_string()<<endl;
+    return 0;
 }
 
 

@@ -9,7 +9,8 @@
 
 #include <sstream>
 #include <bitset>
-
+#include <cstring>
+#include <bits/stdc++.h>
 // on suppose que la la taille donnée en paramètre c'est celle la prmière sequence.
 template<const int size_para = 4> class SequenceD : public Sequence {
 
@@ -144,6 +145,8 @@ public:
 
     friend std::ostream& operator<<(std::ostream& out,SequenceD<64> seqD64);
     // TODO : Getter sous sequence Gauche ( ou fonction left)
+
+    friend std::istream& operator>>(std::istream& in,SequenceD<64> &seqD64);
 };
 
 
@@ -174,9 +177,40 @@ std::ostream& operator<<(std::ostream& out,SequenceD<64> seqD64)
     return out;
 }
 
-std::ostream& operator>>(std::ostream& out,SequenceD<64> seqD64){
+const char* charToBinary(char c) {
+    std::string str;
+    for (int i = 7; i >= 0; --i) {
+        str+= ((c & (1 << i))? '1' : '0');
 
+        std::cout<<str<<std::endl;
+    }
+    std::cout<<str<<std::endl;
+    return str.c_str();
 }
+
+std::istream& operator>>(std::istream& in,SequenceD<64> &seqD64){
+    char entre[8];
+    in>>entre;
+
+    for(int bit_index = 0;bit_index<8;bit_index++){
+        const char* binary_char = charToBinary(entre[bit_index]);
+        std::cout<<entre[bit_index]<<std::endl;
+        for(int i = 0;i<64;i++){
+            switch (binary_char[i]) {
+                case '1':
+                    seqD64[i] = 1;
+                    break;
+                case '0':
+                    seqD64[i] = 0;
+                    break;
+                default:
+                    seqD64[i] = 0;
+            }
+        }
+    }
+    return in;
+}
+
 
 
 #endif //PROJET_SEQUENCED_H
