@@ -3,27 +3,41 @@
 //
 #include <Sequence.h>
 #include <SequenceD.h>
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <bitset>
 
 using namespace std;
 
+//https://stackoverflow.com/questions/23344257/convert-a-string-of-binary-into-an-ascii-string-c
+const char* stringToChar(std::string data){
+    std::stringstream sstream(data);
+    char c;
+    std::string output;
+    while(sstream.good())
+    {
+        std::bitset<8> bits;
+        sstream >> bits;
+        c = char(bits.to_ulong());
+        output+=c;
+    }
+    return output.c_str();
+}
+
 int main(){
 
-    SequenceD<8> sequence1;
+    std::string data = "11110101";
+    char val= *stringToChar(data);
+    cout<<  val << endl;
 
-    sequence1[0] = 1;
-    sequence1[1] = 1;
-    sequence1[2] = 1;
-    sequence1[3] = 1;
-    sequence1[4] = 0;
-    sequence1[5] = 1;
-    sequence1[6] = 0;
-    sequence1[7] = 1;
+    SequenceD<64> sequence;
 
+    Sequence sequence1 = sequence.sous_sequence(32,40);
+
+    cout<<sequence.to_string()<<endl;
     cout<<sequence1.to_string()<<endl;
-    for (int i=0;i<8;i++) {
 
-    cout << sequence1.operator()(i) << endl;
-}
     return 0;
 
 

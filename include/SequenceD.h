@@ -4,6 +4,7 @@
 
 #ifndef PROJET_SEQUENCED_H
 #define PROJET_SEQUENCED_H
+#include <NonMember.h>
 
 
 #include "Sequence.h"
@@ -139,6 +140,7 @@ public:
         return seq_res;
     }
 
+    friend std::ostream& operator<<(std::ostream& out,SequenceD<64> seqD64);
     // TODO : Getter sous sequence Gauche ( ou fonction left)
 };
 

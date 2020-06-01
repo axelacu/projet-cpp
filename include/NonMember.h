@@ -7,7 +7,8 @@
 #include <iostream>
 #include <SequenceD.h>
 
-std::ostream& operator<<(std::ostream&,SequenceD<64>);
+
+std::ostream& operator<<(std::ostream& out,SequenceD<64> seqD64);
 
 std::istream& operator>>(std::istream&,SequenceD<64>);
 
