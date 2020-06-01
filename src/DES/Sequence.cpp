@@ -90,6 +90,23 @@ void Sequence::operator=(int valeur_entier) {
         }
     }
 }
+
+
+Sequence Sequence::sous_sequence(int begin, int fin) {
+    Sequence seq_res = Sequence(fin-begin);
+    // pour chaque element entre begin et fin de la sequence le mettre dans seq_res
+    for(int i=begin,j = 0;i<fin;i++,j++){
+
+        seq_res[j] = this->operator()(i);
+
+    }// retour nouvelle sequence
+    return seq_res;
+}
+
+
+
+
+
 //affichage
 std::string Sequence::to_string() {
     std::string str = "";

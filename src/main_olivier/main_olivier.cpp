@@ -22,6 +22,10 @@ int main(){
 
     cout<<  "seq 2 : " << sequence1.to_string()<<endl;
 
-    rotate(ve.begin(), ve.begin()+pas, ve.end());
+    cout<< "test"<<endl;
+    Sequence sequence;
+    cout<<" sequence avant rot " <<sequence.to_string()<< endl;
+    sequence.decalage(3);
+    cout<<" sequence apres rot " <<sequence.to_string()<< endl;
     return 0;
 }
