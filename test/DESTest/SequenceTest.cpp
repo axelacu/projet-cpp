@@ -37,10 +37,10 @@ TEST(modif_seq,basic_test){
 
     Sequence sequence2;
     std::cout<< "Seq2 before : " << sequence2.to_string() <<std::endl;
-    sequence1[3]=0;
+    sequence2[3]=0;
     std::cout<< "Seq2 after : " << sequence2.to_string() <<std::endl;
-    ASSERT_EQ(sequence2[4],0);
-    ASSERT_EQ(sequence2(4),0);
+    ASSERT_EQ(sequence2[3],0);
+    ASSERT_EQ(sequence2(3),0);
 
     //test que des 0
     std::cout<< "Test du [] " <<std::endl;
@@ -54,7 +54,6 @@ TEST(modif_seq,basic_test){
 }
 
 TEST(operateur_egale,basic_test){
-
     Sequence sequence1;
 
     std::cout<< "Test du operateur= " <<std::endl;
