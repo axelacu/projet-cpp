@@ -129,6 +129,16 @@ public:
         return Sequence::to_string()  + " " + sequence_right.to_string() ;
     }
 
+    Sequence sous_sequence(int begin,int fin){
+        Sequence seq_res = Sequence(fin-begin);
+        // pour chaque element entre begin et fin de la sequence le mettre dans seq_res
+        for(int i=begin,j = 0;i<fin;i++,j++){
+
+            seq_res[j] = this->operator()(i);
+        }// retour nouvelle sequence
+        return seq_res;
+    }
+
     // TODO : Getter sous sequence Gauche ( ou fonction left)
 };
 

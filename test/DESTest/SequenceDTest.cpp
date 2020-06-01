@@ -95,3 +95,15 @@ TEST(operateur_etoile,basic_test){
 
     ASSERT_EQ("1010 0000",seq_obtenu.to_string());
 }
+
+TEST(sous_seq,basic_test){
+    SequenceD<64> sequenceD;
+
+    Sequence sequence = sequenceD.sous_sequence(32,64);
+
+    ASSERT_EQ(32,sequence.size());
+
+    cout<< "SEQUENCE D : " << sequenceD.to_string()<<endl;
+    cout<< "SOUS SEQ : " << sequence.to_string()<<endl;
+
+}
