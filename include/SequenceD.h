@@ -32,7 +32,16 @@ public:
     /// L’opérateur [] qui permettra d’accéder (et potentiellement modifier) un bit de la séquence.
     /// \return
     int& operator[](int valeur_entier){
+            int position=0;
+            int moitie = size_para/2;
 
+            if(valeur_entier<moitie)
+            {
+                return Sequence::operator[](valeur_entier);
+            } else
+            {
+                return sequence_right[valeur_entier];
+            }
     }
 
     /// L’opérateur () qui renverra la valeur d’un bit sans permettre de la modifier
@@ -40,6 +49,8 @@ public:
     /// pour lequel elle est appelée
     /// \return
     int operator()(int valeur_entier) const{
+
+        return this->operator[](valeur_entier);
 
     }
 
