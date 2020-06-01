@@ -7,4 +7,8 @@ add_library(DES
         Sequence.cpp
         ${projet_SOURCE_DIR}/include/Sequence.h
         test.cpp
-        ${projet_SOURCE_DIR}/include/test.h)
+        ${projet_SOURCE_DIR}/include/test.h
+        Permutation.cpp
+        ${projet_SOURCE_DIR}/include/Permutation.h
+        KeyGen.cpp
+        ${projet_SOURCE_DIR}/include/KeyGen.h)
