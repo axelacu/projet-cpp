@@ -81,7 +81,7 @@ public:
 
     /// fonction membre decalage qui prendra en paramètre un entier et qui effectuera un décalage à gauche des
     ///bits de chaque sous-séquence d’autant de bits qu’indiqué par le paramètre entier
-  // TODO: TESTER
+
     void decalage(int pas){
         Sequence::decalage(pas);
         sequence_right.decalage(pas);
@@ -93,7 +93,7 @@ public:
 
      //renverra une SequenceD correspondant au résultat du « ou exclusif » (XOR) entre les deux séquences
      //données en paramètres
-     //TODO: TESTER
+
     SequenceD operator*(SequenceD &sequenceB)
     {
         if(sequenceB.size() != this->size()){

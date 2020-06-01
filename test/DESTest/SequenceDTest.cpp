@@ -47,6 +47,24 @@ TEST(crochet_seqD, basic_test){
     ASSERT_EQ(1,sequence1(1));
 }
 
+TEST(DECALAGE,basic_test){
+
+    SequenceD<8> sequence1;
+    sequence1[0] = 0;
+    sequence1[1] = 1;
+    sequence1[2] = 0;
+    sequence1[3] = 0;
+    sequence1[4] = 1;
+    sequence1[5] = 1;
+    sequence1[6] = 0;
+    sequence1[7] = 1;
+    sequence1.decalage(2);
+    ASSERT_EQ("0001 0111",sequence1.to_string());
+
+}
+
+
+
 
 TEST(operateur_etoile,basic_test){
     SequenceD<8> sequenceD;
